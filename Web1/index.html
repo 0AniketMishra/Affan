@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>image</title>
+    
 </head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +32,7 @@
     .mid {
         display: block;
         width: 32%;
-        margin: 20px auto;
+        margin:  auto;
         font-size: 20px;
     }
 
@@ -84,26 +85,32 @@
         border-radius: 10px;
         font-size: 20px;
         cursor: pointer;
+        
     }
 
     .btn:hover {
         background-color: rgb(219, 30, 30);
+     
     }
+    
 
     .container {
         border: 4px solid white;
-        margin: 93px 50px;
+        margin: auto;
+        
         padding: 50px 50px;
         border-radius: 10px;
-        width: 40%;
+        width: 60%;
+        max-width: 50rem;
 
     }
 
     .form-group input {
         font-family: "Cedarville Cursive", cursive;
         display: block;
-        width: 500px;
-        padding: 1px;
+        width: 99%;
+        padding-left: 5px;
+        padding-right: 5px;
         font-size: 25px;
         border: 2px solid black;
         margin: 11px auto;
@@ -113,9 +120,9 @@
 
     .container button {
         display: block;
-        width: 500px;
-        padding: 1px;
-        margin: 15px;
+        width: 99%;
+        padding: 5px;
+        
         font-size: 25px;
         border: 2px solid white;
         margin: 11px auto;
@@ -146,22 +153,56 @@
                 </div>
 
     </header>
+<script type="text/javascript" 
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("RrEJwLgxvoudEtWza");
+    })();
+</script>
+
+</script>
+    <script>
+  function sendMail(){
+      var params = {
+          from_name: document.getElementById("name").value,
+          age: document.getElementById("age").value,
+          gender: document.getElementById("gender").value,
+          locality: document.getElementById("locality").value
+       }
+       console.log(params)
+
+       try{
+           emailjs.send("service_kukfbrb", "template_xsby078", params)
+           alert("Your message was sent!")
+       }catch(error){
+        console.log(error)
+       }
+       
+          
+      
+  }
+ </script> 
+
+
+
     <div class="container">
         <h1>Join the best Gym of Kolkata now</h1>
-        <form action="noaction.php">
+        <form>
             <div class="form-group">
-                <input type="text" name="" placeholder="Enter your name">
+                <input id="name" type="text" name="" placeholder="Enter your name">
             </div>
             <div class="form-group">
-                <input type="text" name="" placeholder="Enter your age">
+                <input id="age" type="text" name="" placeholder="Enter your age">
             </div>
             <div class="form-group">
-                <input type="text" name="" placeholder="Enter your gender">
+                <input id="gender" type="text" name="" placeholder="Enter your gender">
             </div>
             <div class="form-group">
-                <input type="text" name="" placeholder="Enter your locality">
-            </div>
-            <button class="btn">Submit</button>
+                <input id="locality" type="text" name="" placeholder="Enter your locality">
+           
+            <button onclick="sendMail()" class="btn">Submit</button>
         </form>
     </div>
 </body>
